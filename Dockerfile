@@ -1,13 +1,6 @@
 FROM ghcr.io/hassio-addons/debian-base:7.1.0
 
-LABEL io.hass.version="1.0" io.hass.type="addon" io.hass.arch="armhf|aarch64|i386|amd64"
-
-# Confiure locale
-#ENV \
-#    LANG=en_US.UTF-8 \
-#    LANGUAGE=en_US:en \
-#    LC_ALL=en_US.UTF-8 \
-#    PIP_BREAK_SYSTEM_PACKAGES=1
+LABEL io.hass.version="1.0" io.hass.type="addon" io.hass.arch="aarch64|amd64"
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -52,7 +45,6 @@ RUN useradd \
 
 EXPOSE 631
 
-#CMD ["/bin/bash"]
 RUN chmod a+x /run.sh
 
 CMD ["/run.sh"]
