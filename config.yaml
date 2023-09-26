@@ -2,7 +2,6 @@ name: CUPS
 version: "1.0"
 slug: cupsik
 description: A CUPS print server with working AirPrint
-#url: https://github.com/MaxWinterstein/homeassistant-addons/
 arch:
   - amd64
   - aarch64
@@ -18,6 +17,5 @@ ports_description:
   631/udp: For other devices on the local network to print to this server
 # ingress: false
 map:
-  - ssl
   - config:rw
 
