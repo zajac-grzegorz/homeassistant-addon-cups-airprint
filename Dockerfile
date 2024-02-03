@@ -5,6 +5,9 @@ LABEL io.hass.version="1.0" io.hass.type="addon" io.hass.arch="aarch64|amd64"
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# GhostScript, ImageMagick and IPPTool are additional to the original implementation
+# They allow for advanced post-processing of any PDFs created
+
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         sudo \
@@ -29,6 +32,9 @@ RUN apt-get update \
         bash-completion \
         procps \
         whois \
+        ghostscript \
+        imagemagick \
+        ipptool \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
