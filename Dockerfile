@@ -21,6 +21,7 @@ RUN apt-get update \
         hp-ppd  \
         hplip \
         printer-driver-foo2zjs \
+        printer-driver-escpr \
         cups-pdf \
         gnupg2 \
         lsb-release \
