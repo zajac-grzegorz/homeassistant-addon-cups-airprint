@@ -20,6 +20,7 @@ RUN apt-get update \
         hpijs-ppds \
         hp-ppd  \
         hplip \
+        printer-driver-hpcups \
         printer-driver-foo2zjs \
         cups-pdf \
         gnupg2 \
