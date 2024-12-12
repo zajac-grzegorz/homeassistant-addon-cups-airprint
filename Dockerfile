@@ -15,6 +15,7 @@ RUN apt-get update \
         dbus \
         colord \
         printer-driver-all \
+        printer-driver-brlaser \
         printer-driver-gutenprint \
         openprinting-ppds \
         hpijs-ppds \
