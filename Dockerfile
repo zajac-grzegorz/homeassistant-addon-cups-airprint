@@ -23,6 +23,7 @@ RUN apt-get update \
         hplip \
         printer-driver-hpcups \
         printer-driver-foo2zjs \
+        printer-driver-escpr \
         cups-pdf \
         gnupg2 \
         lsb-release \
