@@ -17,6 +17,10 @@ RUN apt update \
         dbus \
         colord \
         printer-driver-all-enforce \
+        printer-driver-all \
+        printer-driver-splix \
+        printer-driver-brlaser \
+        printer-driver-gutenprint \
         openprinting-ppds \
         hpijs-ppds \
         hp-ppd  \
