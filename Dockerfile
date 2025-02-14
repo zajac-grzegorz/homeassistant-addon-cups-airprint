@@ -1,6 +1,6 @@
-FROM ghcr.io/hassio-addons/debian-base:7.1.0
+FROM ghcr.io/hassio-addons/debian-base:7.6.2
 
-LABEL io.hass.version="1.0" io.hass.type="addon" io.hass.arch="aarch64|amd64"
+LABEL io.hass.version="1.5" io.hass.type="addon" io.hass.arch="aarch64|amd64"
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
@@ -16,12 +16,15 @@ RUN apt-get update \
         colord \
         printer-driver-all \
         printer-driver-splix \
+        printer-driver-brlaser \
         printer-driver-gutenprint \
         openprinting-ppds \
         hpijs-ppds \
         hp-ppd  \
         hplip \
+        printer-driver-hpcups \
         printer-driver-foo2zjs \
+        printer-driver-escpr \
         cups-pdf \
         gnupg2 \
         lsb-release \
