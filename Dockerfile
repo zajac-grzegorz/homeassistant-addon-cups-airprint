@@ -47,6 +47,41 @@ RUN cd /tmp \
   && mv cnijfilter2-6.80-1-deb/packages/cnijfilter2_6.80-1_${ARCH}.deb cnijfilter2_6.80-1.deb \
   && apt install ./cnijfilter2_6.80-1.deb
 
+# Add Canon UFR II/UFRII LT Printer Driver
+RUN cd /tmp \
+  && if [ "$(arch)" = 'x86_64' ]; then ARCH="amd64"; else ARCH="arm64"; fi \
+  && curl https://gdlp01.c-wss.com/gds/0/0100009240/37/linux-UFRII-drv-v610-m17n-01.tar.gz -o linux-UFRII-drv-v610-m17n-01.tar.gz \
+  && tar -xvf ./linux-UFRII-drv-v610-m17n-01.tar.gz \
+  && ls -la \
+  && apt update \
+  && apt install -y --no-install-recommends \
+     cups-bsd \
+     ghostscript \
+     libatk1.0-0 \
+     libcups2 \
+     libcupsimage2 \
+     libgcrypt20 \
+     libgdk-pixbuf2.0-0 \
+     libgtk-3-0 \
+     libjbig0 \
+     libjpeg62-turbo \
+     libpango-1.0-0 \
+     libpangocairo-1.0-0 \
+     lsb-release \
+     zlib1g \
+  && ls -la \
+  && cd linux-UFRII-drv-v610-m17n 2>/dev/null || cd linux-UFRII-drv-v* \
+  && ls -la \
+  && if [ "$(arch)" = 'x86_64' ]; then \
+       find . -path "*x64/Debian/*.deb" -exec dpkg -i --force-overwrite {} \; || true; \
+     else \
+       find . -path "*ARM64/Debian/*.deb" -exec dpkg -i --force-overwrite {} \; || true; \
+     fi \
+  && apt-get -f install -y \
+  && cd .. \
+  && rm -rf ./linux-UFRII-drv-v* ./linux-UFRII-drv-v*.tar.gz \
+  && apt clean -y
+
 COPY rootfs /
 
 # Add user and disable sudo password checking
