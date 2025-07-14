@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 
-ulimit -n 1048576
+ulimit -n 524288
 
 bashio::log.info "Starting Avahi daemon from S6"
 
